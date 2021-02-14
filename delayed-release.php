@@ -32,12 +32,12 @@ defined( 'ABSPATH' ) or die();
 class DelayedRelease
 {
     public $delays = array(
-        '5 minutes' => 300,
-        '12 hours'  => 43200,
-        '24 hours'  => 86400,
-        '3 days'    => 259200,
-        '1 week'    => 604800,
-        'Never'     => -1,
+        '5 minutes (for testing)' => 300,
+        '12 hours'                => 43200,
+        '24 hours'                => 86400,
+        '3 days'                  => 259200,
+        '1 week'                  => 604800,
+        'Never'                   => -1,
     );
 
     static function activate() {
@@ -105,7 +105,6 @@ class DelayedRelease
     }
     
     function delayed_release_callback( $post_id, $category ) {
-        // WORKS SO FAR
         wp_remove_object_terms( $post_id, $category, 'category' );
     }
 
